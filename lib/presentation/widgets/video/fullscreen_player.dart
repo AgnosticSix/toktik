@@ -62,22 +62,23 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
             controller.play();
           },
           child: AspectRatio(
-              aspectRatio: controller.value.aspectRatio,
-              child: Stack(
-                children: [
-                  VideoPlayer(controller),
-                  VideoBackground(
-                    stops: [0.8, 1.0],
+            aspectRatio: controller.value.aspectRatio,
+            child: Stack(
+              children: [
+                VideoPlayer(controller),
+                VideoBackground(
+                  stops: [0.8, 1.0],
+                ),
+                Positioned(
+                  bottom: 50,
+                  left: 20,
+                  child: _VideoCaption(
+                    caption: widget.caption,
                   ),
-                  Positioned(
-                    bottom: 50,
-                    left: 20,
-                    child: _VideoCaption(
-                      caption: widget.caption,
-                    ),
-                  )
-                ],
-              )),
+                )
+              ],
+            ),
+          ),
         );
       },
     );
